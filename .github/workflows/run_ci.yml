@@ -57,9 +57,14 @@ jobs:
 
     - name: Run tox
       run: tox
-      env:
-        POSTGRES_HOST: localhost
-        POSTGRES_PORT: 5432
+      env:       
+        DATABASE_SERVICE_NAME=POSTGRES_SQL
+        DATABASE_ENGINE=postgresql
+        DATABASE_NAME=yupana_test
+        POSTGRES_SQL_SERVICE_HOST=localhost
+        POSTGRES_SQL_SERVICE_PORT=5432
+        DATABASE_USER=postgres
+        DATABASE_PASSWORD=postgres
 
     - name: Setup node
       uses: actions/setup-node@v2
